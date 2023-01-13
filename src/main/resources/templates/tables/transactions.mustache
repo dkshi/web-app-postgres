@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>transactions</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, td, th{
+            border: 1px solid #999;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<h2>transactions</h2>
+<table>
+    <tr>
+        <th>customer_id</th>
+        <th>mcc_code</th>
+        <th>tr_datetime</th>
+        <th>tr_type</th>
+        <th>amount</th>
+        <th>term_id</th>
+    </tr>
+
+    {{#transactions}}
+        <tr>
+            <td>{{customerId}}</td>
+            <td>{{mccCodeId}}</td>
+            <td>{{trDateTime}}</td>
+            <td>{{trTypeId}}</td>
+            <td>{{amount}}</td>
+            <td>{{terminalId}}</td>
+        </tr>
+    {{/transactions}}
+</table>
+<br>
+<div>
+    <form method="post">
+        <input type="text" name="customerId" placeholder="Enter customerId "/>
+        <br>
+        <input type="text" name="mccCodeId" placeholder="Enter mccCodeId "/>
+        <br>
+        <input type="text" name="trDateTime" placeholder="Enter datetime of transaction"/>
+        <br>
+        <input type="text" name="trTypeId" placeholder="Enter typeId of transaction "/>
+        <br>
+        <input type="text" name="amount" placeholder="Enter amount "/>
+        <br>
+        <input type="text" name="terminalId" placeholder="Enter terminalId "/>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/tables/exportTransactions">
+        <input type="submit" value="Download CSV"/>
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/tables/finding">
+        <input type="submit" value="Find transactions by description"/>
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/">
+        <input type="submit" value="Back"/>
+    </form>
+
+</div>
+
+</body>
+</html>

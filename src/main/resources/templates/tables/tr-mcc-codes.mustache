@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tr_mcc_codes</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, td, th{
+            border: 1px solid #999;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<h2>tr_mcc_codes</h2>
+<table>
+    <tr>
+        <th>mcc_code</th>
+        <th>mcc_description</th>
+    </tr>
+
+    {{#mccCodes}}
+        <tr>
+            <td>{{mccCodeId}}</td>
+            <td>{{mccDescription}}</td>
+        </tr>
+    {{/mccCodes}}
+</table>
+<br>
+<div>
+    <form method="post">
+        <input type="text" name="mccCodeId" placeholder="Enter MCC code "/>
+        <br>
+        <input type="text" name="mccDescription" placeholder="Enter description "/>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/tables/exportMccCodes">
+        <input type="submit" value="Download CSV"/>
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/">
+        <input type="submit" value="Back"/>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gender_train</title>
+    <style>
+    table {
+        border-collapse: collapse;
+    }
+    table, td, th{
+        border: 1px solid #999;
+        padding: 5px;
+    }
+    </style>
+</head>
+<body>
+<h2>gender_train</h2>
+<table>
+    <tr>
+        <th>customer_id</th>
+        <th>gender</th>
+    </tr>
+
+    {{#genderTrains}}
+        <tr>
+            <td>{{customerId}}</td>
+            <td>{{gender}}</td>
+        </tr>
+    {{/genderTrains}}
+</table>
+<br>
+<div>
+    <form method="post">
+        <input type="text" name="customerId" placeholder="Enter clientId "/>
+        <br>
+        <input type="text" name="gender" placeholder="Enter client gender "/>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/tables/exportGenderTrain">
+        <input type="submit" value="Download CSV"/>
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/">
+        <input type="submit" value="Back"/>
+    </form>
+
+
+</div>
+
+</body>
+</html>

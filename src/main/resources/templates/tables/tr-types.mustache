@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tr_type</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table, td, th{
+            border: 1px solid #999;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<h2>tr_type</h2>
+<table>
+    <tr>
+        <th>tr_type</th>
+        <th>tr_description</th>
+    </tr>
+
+    {{#transactionTypes}}
+        <tr>
+            <td>{{trTypeId}}</td>
+            <td>{{trDescription}}</td>
+        </tr>
+    {{/transactionTypes}}
+</table>
+<br>
+<div>
+    <form method="post">
+        <input type="text" name="trTypeId" placeholder="Enter transaction typeId "/>
+        <br>
+        <input type="text" name="trDescription" placeholder="Enter description of transaction "/>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <br>
+
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/tables/exportTransactionTypes">
+        <input type="submit" value="Download CSV"/>
+    </form>
+
+    <br>
+
+    <form action="http://localhost:8080/">
+        <input type="submit" value="Back"/>
+    </form>
+
+</div>
+
+</body>
+</html>
